@@ -37,4 +37,24 @@ module.exports = {
     });
     return false;
   },
+  edit: async function (req,res) {
+    Articles.findOne({id: req.params.id}).exec((err,article) => {
+      if (err) {
+        res.serverError(err);
+      }
+      res.view('edit',{article:article});
+    });
+  },
+  update: async function (req,res) {
+    var title = req.body.title;
+    var body = req.body.body;
+
+    Articles.update({id: req.params.id},{ title: title, body: body }).exec((err) => {
+      if (err) {
+        res.serverError(err);
+      }
+      res.redirect('/articles/list');
+    });
+    return false;
+  }
 };

@@ -32,6 +32,14 @@ module.exports.routes = {
   'post /articles/delete/:id' : {
     controller: 'ArticlesController',
     action: 'delete'
+  },
+  'get /articles/edit/:id' : {
+    controller: 'ArticlesController',
+    action: 'edit'
+  },
+  'post /articles/update/:id' : {
+    controller: 'ArticlesController',
+    action: 'update'
   }
 
 
