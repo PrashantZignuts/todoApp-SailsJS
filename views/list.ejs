@@ -9,18 +9,18 @@
     </tr>
   </thead>
   <tbody>
-    <% articles.forEach(function(article){ %>
+    <% for(let i = 0; i < articles.length; i++ ){ %>
         <tr>
-            <td><%= article.id %></td>
-            <td><%= article.title %></td>
-            <td><%= article.body %></td>
+            <td><%= i + 1 %></td>
+            <td><%= articles[i].title %></td>
+            <td><%= articles[i].body %></td>
             <td>
-                <a href="/articles/edit/<%= article.id %>" class="btn btn-primary">Edit</a>
-                <form class="d-inline" action="/articles/delete/<%= article.id %>" method="post">
+                <a href="/articles/edit/<%= articles[i].id %>" class="btn btn-primary">Edit</a>
+                <form class="d-inline" action="/articles/delete/<%= articles[i].id %>" method="post">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form>
             </td>
         </tr>
-    <% }) %>
+    <% } %>
   </tbody>
 </table>
